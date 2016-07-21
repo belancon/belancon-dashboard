@@ -20,7 +20,7 @@
                                   <td><img src="<?php echo base_url();?>upload/png/user-1.png" height="40"></td>
                                   <td>System Architect</td>
                                   <td>Food</td>
-                                  <td><span class="btn-success">Free</span></td>
+                                  <td><span class="label label-success">Free</span></td>
                                   <td width="170">
                                     <a href="form_edit.html?" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
                                     <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>
