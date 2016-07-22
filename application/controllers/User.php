@@ -40,7 +40,7 @@ class User extends CI_Controller {
 
         if($this->form_validation->run() == TRUE) {
             $username = $this->input->post('username');
-            $password = "belancon2016";
+            $password = "belancon2016"; //default password
             $email = $this->input->post('email');
             $additional_data = array(
                 'first_name' => $this->input->post('firstname'),

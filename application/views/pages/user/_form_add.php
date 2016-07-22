@@ -53,6 +53,9 @@
                             </div>                     
                     </div>
                     <div class="content">
+                        <p><strong>default password</strong> : <span class="text-info">belancon2016</span></p>
+                    </div>
+                    <div class="content">
                             <button type="submit" class="btn btn-info btn-fill pull-right">Tambah User</button>                           
                             <button type="reset" class="btn btn-warning btn-fill pull-right">Reset</button>
                             <div class="clearfix"></div>

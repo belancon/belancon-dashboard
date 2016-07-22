@@ -28,6 +28,11 @@
             <button type="submit" class="btn btn-success">Login</button>
           <?php echo form_close();?>
         </div>
+        <div class="content">
+          <h5>Demo User</h5>
+          <p>Username : administrator</p>
+          <p>Password : password</p>
+        </div>
         <hr>
         <div class="text-center">
           <button href="#" class="btn btn-simple"><i class="fa fa-facebook-square"></i></button>
