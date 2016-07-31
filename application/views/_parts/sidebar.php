@@ -16,12 +16,12 @@ Tip 2: you can also add an image using data-image tag
                     <p>Dashboard</p>
                 </a>
             </li>
-            <li <?php echo menu_active('icon');?>>
+            <!-- <li <?php echo menu_active('icon');?>>
                 <a href="<?php echo site_url('icon');?>">
                     <i class="pe-7s-like"></i>
                     <p>Icon</p>
                 </a>
-            </li>
+            </li> -->
             <li <?php echo menu_active('user');?>>
                 <a href="<?php echo site_url('user');?>">
                     <i class="pe-7s-user"></i>
