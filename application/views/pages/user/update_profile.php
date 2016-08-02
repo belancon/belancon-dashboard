@@ -27,6 +27,7 @@
                                     <div class="form-group">
                                         <label>Nama Depan</label>
                                         <input type="text" class="form-control" placeholder="Nama Depan" value="<?php echo user_login('first_name');?>" name="firstname">
+                                        <span class="text-danger"><?php echo form_error('firstname');?></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">

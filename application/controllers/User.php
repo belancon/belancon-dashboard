@@ -42,10 +42,16 @@ class User extends CI_Controller {
             $username = $this->input->post('username');
             $password = "belancon2016"; //default password
             $email = $this->input->post('email');
+            $firstname = $this->input->post('firstname');
+            $lastname = $this->input->post('lastname');
+            $phone = $this->input->post('phone');
+            $random_number = mt_rand();
+            $url = strtolower($firstname)."_".$random_number;
             $additional_data = array(
-                'first_name' => $this->input->post('firstname'),
-                'last_name' => $this->input->post('lastname'),
-                'phone' => $this->input->post('phone')
+                'first_name' => $firstname,
+                'last_name' => $lastname,
+                'url' => $url,
+                'phone' => $phone
             );
             $group = array($this->input->post('group')); // Sets user to admin.
             
@@ -101,22 +107,45 @@ class User extends CI_Controller {
     public function change_profile() {
         $this->is_logged_in();
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {           
-            $id = user_login('id');
-            $data = array(
-                'first_name' => $this->input->post('firstname'),
-                'last_name' => $this->input->post('lastname'),
-                'phone' => $this->input->post('phone'),
-            );
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {   
 
-            $result = $this->ion_auth->update($id, $data);
-            if($result) {
-                $this->session->set_flashdata('success_message', $this->ion_auth->messages());
+            $this->form_validation->set_rules('firstname', 'Nama Depan', 'required');
+            $this->form_validation->set_message('required', '{field} harap diisi');
+
+            if($this->form_validation->run() === TRUE) {
+                $id = user_login('id');
+                $firstname = $this->input->post('firstname');
+                $lastname = $this->input->post('lastname');
+                $phone = $this->input->post('phone');
+                $random_number = mt_rand();
+                $url = strtolower($firstname)."_".$random_number;
+                $data = array(
+                    'first_name' => $firstname,
+                    'url' => $url,
+                    'last_name' => $lastname,
+                    'phone' => $phone,
+                );
+
+                $result = $this->ion_auth->update($id, $data);
+                if($result) {
+                    $this->session->set_flashdata('success_message', $this->ion_auth->messages());
+                } else {
+                    $this->session->set_flashdata('error_message', $this->ion_auth->errors());
+                }
+
+                redirect('change-profile');
             } else {
-                $this->session->set_flashdata('error_message', $this->ion_auth->errors());
+                $this->template->set_title('Belancon | User');
+                $this->_load_css();
+                $this->_load_js();
+                //set text on page i.e text on header etc
+                $this->template->set_text('header', 'User');
+                //set layout
+                $this->_load_layout();
+                //set content/page
+                $this->template->set_content('pages/user/update_profile');
+                $this->template->render();
             }
-
-            redirect('change-profile');
         } else {
 
             $this->template->set_title('Belancon | User');
@@ -274,6 +303,7 @@ class User extends CI_Controller {
         $tables = $this->config->item('tables','ion_auth');        
         $this->form_validation->set_rules('username', 'Username', 'required|min_length[3]|is_unique['.$tables['users'].'.username]');
         $this->form_validation->set_rules('email', 'Email', 'required|is_unique['.$tables['users'].'.email]');
+        $this->form_validation->set_rules('firstname', 'Nama Depan', 'required');
         $this->form_validation->set_rules('group', 'Grup', 'required');
         
         $this->form_validation->set_message('required', '{field} harus diisi');

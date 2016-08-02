@@ -27,6 +27,18 @@ Tip 2: you can also add an image using data-image tag
                     <i class="pe-7s-user"></i>
                     <p>User</p>
                 </a>
+            </li> 
+            <li <?php echo menu_active('category');?>>
+                <a href="<?php echo site_url('category');?>">
+                    <i class="pe-7s-folder"></i>
+                    <p>Kategori</p>
+                </a>
+            </li>
+            <li <?php echo menu_active('social-media');?>>
+                <a href="<?php echo site_url('social-media');?>">
+                    <i class="pe-7s-folder"></i>
+                    <p>Social Media</p>
+                </a>
             </li>            
         </ul>
     </div>

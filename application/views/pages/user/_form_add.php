@@ -23,9 +23,10 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="firstname" class="col-sm-2 control-label">Nama Depan</label>
+                                <label for="firstname" class="col-sm-2 control-label">Nama Depan <span class="text-danger">*</span></label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="firstname" placeholder="Nama Depan" value="<?php echo set_value('firstname');?>">
+                                    <span class="text-danger"><?php echo form_error('firstname'); ?></span>
                                 </div>
                             </div>  
                             <div class="form-group">
