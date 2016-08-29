@@ -78,6 +78,8 @@
                 if(search == '') {
                     window.location = BASE_URL + "language";
                 } else {
+                    search = search.replace("'", "");
+                    search = search.replace('"', '');
                     window.location = BASE_URL + "language/search/" + search;
                 }
             }
