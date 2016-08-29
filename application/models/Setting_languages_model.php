@@ -9,4 +9,19 @@ class Setting_languages_model extends MY_Model
     {
         parent::__construct();      
     }
+
+    public function check_setting_exist($name, $lang, $id) {
+
+    	if($id) {
+    		$result = $this->where('name', $name)->where('lang', $lang)->where('id', '!=', $id)->get_all();
+    	} else {
+    		$result = $this->where('name', $name)->where('lang', $lang)->get_all();
+    	}
+
+    	if($result) {
+    		return TRUE;
+    	} else {
+    		return FALSE;
+    	}
+    }
 }

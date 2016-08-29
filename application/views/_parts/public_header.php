@@ -35,6 +35,8 @@
         }
     ?>
 
-
+    <script type="text/javascript">
+        BASE_URL = '<?php echo base_url();?>';
+    </script>
 </head>
 <body>

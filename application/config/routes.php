@@ -56,5 +56,7 @@ $route['change-password'] = 'user/change_password';
 $route['social-media'] = "social_media/index";
 $route['social-media/add'] = "social_media/add";
 $route['social-media/update/(:num)'] = "social_media/update/$1";
+$route['language/(:num)'] = "language/index/$1";
+// $route['language/search/(:num)'] = "language/search/$1";
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

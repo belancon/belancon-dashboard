@@ -39,6 +39,12 @@ Tip 2: you can also add an image using data-image tag
                     <i class="pe-7s-folder"></i>
                     <p>Social Media</p>
                 </a>
+            </li>
+            <li <?php echo menu_active('language');?>>
+                <a href="<?php echo site_url('language');?>">
+                    <i class="pe-7s-folder"></i>
+                    <p>Setting Language</p>
+                </a>
             </li>            
         </ul>
     </div>
